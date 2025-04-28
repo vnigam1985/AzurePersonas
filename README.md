@@ -1,5 +1,5 @@
 # AzurePersonas
-This repo contains various Azure Personas Custom RBAC roles, which will serve specific category of cloud engineers
+This repo contains various Azure Personas Custom RBAC roles, which will serve specific category of cloud engineers, the important factor to consider while implementing these roles is these roles do not include actions which are necessary for deploying these services, It has been considered that deployment of these services are being done with automation/pipelines, which are using different SPN, which has higher level access. These roles are only created for engineers to manage their services after they are deployed using automation pipelines. 
 
 # Serverless Developer - Granular Access
 
