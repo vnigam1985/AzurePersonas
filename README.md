@@ -1,5 +1,5 @@
 # AzurePersonas
-This repo contains various Azure Personas Custom RBAC roles, which will serve specific category of cloud engineers, the important factor to consider while implementing these roles is these roles do not include actions which are necessary for deploying these services, It has been considered that deployment of these services are being done with automation/pipelines, which are using different SPN, which has higher level access. These roles are only created for engineers to manage their services after they are deployed using automation pipelines. 
+This repo contains various Azure Persona based Custom RBAC roles, which will serve specific category of cloud engineers, the important factor to consider while implementing these roles is these roles do not include actions which are necessary for deploying these services, It has been considered that deployment of these services are being done with automation/pipelines, which are using different SPN, which has higher level access. These roles are only created for engineers to manage their services after they are deployed using automation pipelines. 
 
 # Serverless Developer - Granular Access
 
@@ -24,73 +24,63 @@ No resource creation or deletion is allowed — only updates, testing, configura
 - Manage queue messages
 - Query Log Analytics
 
-## Assignable Scope:
-- Specific subscription only
+## Scope:
+- Assignable Scope: `/subscriptions/{subscription-id}`
 
 ---
 
 # Azure IaaS Engineer - Custom RBAC Role
 
-## Purpose
-Granular, least-privilege role for Azure IaaS engineers allowing management and troubleshooting of compute, networking, storage, monitoring, and support tasks without giving owner/admin rights.
+## Overview
+This custom RBAC role is designed for Azure IaaS Engineers to perform operational tasks on Azure Virtual Machines, Scale Sets, Networking, Snapshots, Backups, and Extensions.  
+It intentionally excludes Delete permissions to prevent accidental resource deletion.
 
----
+## Permissions Granted
 
-## Permissions
+### Compute
+- Read, Start, Restart, Deallocate, PowerOff, Update Virtual Machines
+- Run Commands on VMs (e.g., password reset)
+- Read and Install VM Extensions
+- Manage Availability Sets (Read/Write)
+- Manage VM Scale Sets (Read/Write)
+- Manage Managed Disks (Read/Write)
+- Manage Snapshots (Read/Write)
+- Manage Images (Read/Write)
+- Read Compute Galleries
 
-### Compute (VMs)
-- Read VM properties
-- Start, Stop, Restart, Deallocate VMs
-- Resize VMs (SKU change)
-- Run VM commands
-- View Instance health (instanceView)
-
-### Disks & Snapshots
-- Read/Write managed disks
-- Access snapshots
-
-### Networking
-- Read/Write NICs (incl. IP configuration)
-- Read Public IPs
+### Network
+- Read/Write Public IPs
+- Read/Write NICs
+- Read/Write Load Balancers
+- Read/Write Application Gateways
+- Read/Connect Bastion Hosts
 - Read Virtual Networks and Subnets
-- Read/Write NSG rules
-- Read Load Balancers and backend pools
 
-### Azure Bastion
-- Read Bastion resources
-- Start Bastion session
+### Recovery and Backup
+- Manage Recovery Services Vault
+- Configure Backup Policies
+- Perform Backup and Restore Operations
+
+### Key Vault
+- Read Secrets
+- Update Secrets
+
+### SSH Keys
+- Read/Write SSH Public Keys
 
 ### Monitoring
-- View Diagnostic settings
-- View Metric Alerts
-- View Application Insights components
-- View Queries
-- View Autoscale settings
+- Read Metrics
+- Read/Write Diagnostic Settings
 
-### Storage
-- Read Storage Accounts
-- Read/List containers
-- Read/Write/Delete blobs
+### Support
+- Read/Write Support Tickets (Microsoft.Support)
 
-### Logs & Support
-- Query Log Analytics workspaces
-- Create and View Azure Support Tickets
-
-### Resource Groups and Tags
-- Read Resource Groups
-- Read and Write Tags
-
----
-
-## Notes
-- Initial infrastructure deployment (VMs, VNets, etc.) happens via Infrastructure-as-Code (IaC) tools like Terraform/Bicep.
-- Engineer role focuses on operations, monitoring, troubleshooting, and minor updates only.
-- No delete permission for VMs or critical resources.
-
----
+## Restrictions
+- No delete permissions on critical resources (VMs, Disks, Snapshots, Networks, Load Balancers, etc.)
 
 ## Scope
 - Assignable Scope: `/subscriptions/{subscription-id}`
+
 
 ---
 
