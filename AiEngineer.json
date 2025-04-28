@@ -1,0 +1,41 @@
+{
+    "Name": "Custom Azure AI Engineer Role",
+    "Id": null,
+    "IsCustom": true,
+    "Description": "Custom RBAC Role for Azure AI Engineers with granular permissions, including Azure Machine Learning, Cognitive Services, Storage, Key Vault, Monitoring, and Support.",
+    "Actions": [
+      "Microsoft.MachineLearningServices/workspaces/read",
+      "Microsoft.MachineLearningServices/workspaces/notebooks/read",
+      "Microsoft.MachineLearningServices/workspaces/computes/read",
+      "Microsoft.MachineLearningServices/workspaces/computes/start/action",
+      "Microsoft.MachineLearningServices/workspaces/computes/stop/action",
+      "Microsoft.MachineLearningServices/workspaces/models/read",
+      "Microsoft.MachineLearningServices/workspaces/endpoints/read",
+      "Microsoft.MachineLearningServices/workspaces/endpoints/online/deployments/read",
+      "Microsoft.Storage/storageAccounts/read",
+      "Microsoft.Storage/storageAccounts/listKeys/action",
+      "Microsoft.KeyVault/vaults/read",
+      "Microsoft.KeyVault/vaults/secrets/read",
+      "Microsoft.KeyVault/vaults/secrets/list/action",
+      "Microsoft.CognitiveServices/accounts/read",
+      "Microsoft.CognitiveServices/accounts/listKeys/action",
+      "Microsoft.CognitiveServices/accounts/regenerateKey/action",
+      "Microsoft.CognitiveServices/accounts/metricDefinitions/read",
+      "Microsoft.CognitiveServices/accounts/metrics/read",
+      "Microsoft.CognitiveServices/accounts/deployments/read",
+      "Microsoft.Insights/alertRules/read",
+      "Microsoft.Insights/metrics/read",
+      "Microsoft.Insights/diagnosticSettings/read",
+      "Microsoft.Support/supportTickets/read",
+      "Microsoft.Support/supportTickets/write"
+    ],
+    "NotActions": [],
+    "DataActions": [
+      "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read"
+    ],
+    "NotDataActions": [],
+    "AssignableScopes": [
+      "/subscriptions/{subscription-id}"
+    ]
+  }
+  
