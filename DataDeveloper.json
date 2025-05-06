@@ -1,0 +1,29 @@
+{
+    "Name": "Custom - Azure Data Engineer",
+    "IsCustom": true,
+    "Description": "Data Engineer role to manage ADF pipelines, Synapse, data access in blob/file storage, query SQL, and monitor pipelines.",
+    "Actions": [
+        "Microsoft.DataFactory/factories/*",
+        "Microsoft.Synapse/workspaces/*",
+        "Microsoft.Sql/servers/databases/*/read",
+        "Microsoft.Sql/servers/databases/query/action",
+        "Microsoft.Insights/components/read",
+        "Microsoft.Insights/query/read",
+        "Microsoft.KeyVault/vaults/secrets/read",
+        "Microsoft.EventGrid/eventSubscriptions/read",
+        "Microsoft.Support/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+    ],
+    "DataActions": [
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write",
+        "Microsoft.Storage/storageAccounts/fileServices/shares/files/read",
+        "Microsoft.Storage/storageAccounts/fileServices/shares/files/write",
+        "Microsoft.OperationalInsights/workspaces/query/read"
+    ],
+    "AssignableScopes": [
+        "/subscriptions/{sandbox-subscription-id}",
+        "/subscriptions/{dev-subscription-id}",
+        "/subscriptions/{prod-subscription-id}"
+    ]
+}

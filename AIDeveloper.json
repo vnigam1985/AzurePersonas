@@ -1,0 +1,26 @@
+{
+    "Name": "Custom - Azure AI Engineer",
+    "IsCustom": true,
+    "Description": "AI Engineer role to run experiments, train models, deploy endpoints, monitor ML jobs, and access Cognitive Services.",
+    "Actions": [
+        "Microsoft.MachineLearningServices/*/read",
+        "Microsoft.MachineLearningServices/*/write",
+        "Microsoft.CognitiveServices/accounts/*",
+        "Microsoft.CognitiveServices/accounts/listKeys/action",
+        "Microsoft.CognitiveServices/accounts/regenerateKey/action",
+        "Microsoft.KeyVault/vaults/secrets/read",
+        "Microsoft.Insights/*/read",
+        "Microsoft.Support/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+    ],
+    "DataActions": [
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write",
+        "Microsoft.OperationalInsights/workspaces/query/read"
+    ],
+    "AssignableScopes": [
+        "/subscriptions/{sandbox-subscription-id}",
+        "/subscriptions/{dev-subscription-id}",
+        "/subscriptions/{prod-subscription-id}"
+    ]
+}

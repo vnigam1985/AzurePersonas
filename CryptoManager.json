@@ -1,0 +1,16 @@
+{
+    "Name": "Custom - Azure Crypto Manager",
+    "IsCustom": true,
+    "Description": "Crypto Manager with full Key Vault control across environments.",
+    "Actions": [
+        "Microsoft.KeyVault/vaults/*",
+        "Microsoft.KeyVault/vaults/secrets/*",
+        "Microsoft.KeyVault/vaults/keys/*"
+    ],
+    "DataActions": [],
+    "AssignableScopes": [
+        "/subscriptions/{sandbox-subscription-id}",
+        "/subscriptions/{dev-subscription-id}",
+        "/subscriptions/{prod-subscription-id}"
+    ]
+}

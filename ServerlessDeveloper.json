@@ -1,0 +1,41 @@
+{
+    "Name": "Custom - Serverless Developer",
+    "IsCustom": true,
+    "Description": "Granular role for Azure Serverless Developer to manage function apps, app services, monitoring, logic apps, event grid, messaging and read storage in non-prod environments.",
+    "Actions": [
+        "Microsoft.Web/sites/read",
+        "Microsoft.Web/sites/config/*/read",
+        "Microsoft.Web/sites/config/*/write",
+        "Microsoft.Web/sites/functions/*",
+        "Microsoft.Web/sites/extensions/*",
+        "Microsoft.Web/sites/restart/action",
+        "Microsoft.Web/sites/start/action",
+        "Microsoft.Web/sites/stop/action",
+        "Microsoft.Web/serverfarms/read",
+        "Microsoft.Web/hostingEnvironments/read",
+        "Microsoft.Insights/components/read",
+        "Microsoft.Insights/query/read",
+        "Microsoft.Insights/metrics/read",
+        "Microsoft.Insights/logs/read",
+        "Microsoft.EventGrid/eventSubscriptions/*",
+        "Microsoft.Logic/workflows/*",
+        "Microsoft.KeyVault/vaults/secrets/read",
+        "Microsoft.Support/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/tags/read"
+    ],
+    "DataActions": [
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
+        "Microsoft.Storage/storageAccounts/queueServices/queues/messages/read",
+        "Microsoft.Storage/storageAccounts/queueServices/queues/messages/add",
+        "Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete",
+        "Microsoft.OperationalInsights/workspaces/query/read",
+        "Microsoft.OperationalInsights/workspaces/read"
+    ],
+    "AssignableScopes": [
+        "/subscriptions/{sandbox-subscription-id}",
+        "/subscriptions/{dev-subscription-id}"
+    ]
+}

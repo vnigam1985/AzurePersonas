@@ -1,0 +1,36 @@
+{
+    "Name": "Custom - Azure IaaS Engineer",
+    "IsCustom": true,
+    "Description": "IaaS Engineer role to manage VM lifecycle operations, disks, backups, snapshots, scale sets, networking, and monitoring without delete rights.",
+    "Actions": [
+        "Microsoft.Compute/virtualMachines/*",
+        "Microsoft.Compute/availabilitySets/*",
+        "Microsoft.Compute/virtualMachineScaleSets/*",
+        "Microsoft.Compute/disks/*",
+        "Microsoft.Compute/snapshots/*",
+        "Microsoft.Compute/images/*",
+        "Microsoft.Network/*/read",
+        "Microsoft.Network/*/write",
+        "Microsoft.RecoveryServices/vaults/*/read",
+        "Microsoft.RecoveryServices/vaults/*/write",
+        "Microsoft.Insights/metrics/read",
+        "Microsoft.Insights/diagnosticSettings/*",
+        "Microsoft.Support/*",
+        "Microsoft.Compute/runCommand/action",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+    ],
+    "NotActions": [
+        "Microsoft.Compute/virtualMachines/delete",
+        "Microsoft.Compute/virtualMachineScaleSets/delete",
+        "Microsoft.Compute/disks/delete",
+        "Microsoft.Compute/snapshots/delete",
+        "Microsoft.Compute/images/delete",
+        "Microsoft.Network/*/delete"
+    ],
+    "DataActions": [],
+    "AssignableScopes": [
+        "/subscriptions/{sandbox-subscription-id}",
+        "/subscriptions/{dev-subscription-id}",
+        "/subscriptions/{prod-subscription-id}"
+    ]
+}
